@@ -38,8 +38,8 @@ const RightSection = () => {
                                     {mission_name} #{flight_number}
                                 </div>
                                 <p><strong>Mission Ids</strong> : {mission_id.length > 0 && mission_id.map(elem => <li key={elem}>{elem}</li>)} </p>
-                                <p><strong>Lunch Year</strong> : {launch_year} </p>
-                                <p><strong>Successful Lunch</strong> :  {String(launch_success)}</p>
+                                <p><strong>Launch Year</strong> : {launch_year} </p>
+                                <p><strong>Successful Launch</strong> :  {String(launch_success)}</p>
                                 <p><strong>Successful landing</strong> : {String(land_success)} </p>
                             </div>
                         </div>
