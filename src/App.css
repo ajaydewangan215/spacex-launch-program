@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+/* reset css code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #f0eded;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.container {
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height:100vh;
+  margin: 0 1rem; 
 }
 
-.App-link {
-  color: #61dafb;
+/* Header css */
+.header{
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* main css */
+.main{
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+/* seft section css */
+.main .left-section{ 
+  flex: 15%;
+}
+
+.content{
+  background-color:#fff;
+  padding:0.5rem;
+}
+
+.left-section .filter-heading{
+  position: relative;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.left-section .filter-heading::before{
+  content: '';
+  position: absolute;
+  height: 1px;
+  background: #ddd;
+  width: 70%;
+  bottom: 0;
+  right: 16%;
+}
+
+.filter-btn{
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.filter-btn .btn{
+  position: relative;  
+  display: inline-block;
+  text-align: center;    
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+input[type="radio"]{
+  display: none;
+} 
+
+input[type="radio"] + span{
+  display: block;
+  background-color: lightgreen;
+  border: 1px solid lightgreen;
+  padding: 0.375rem .75rem;
+  border-radius: 0.25rem;
+}
+
+input[type="radio"]:checked + span{
+  background: #42ce42;
+  border: 1px solid #42ce42;
+}
+
+.filter-btn .btn:hover,
+.filter-btn .btn:active{
+  background-color: #42ce42;
+  border-radius: 0.25rem;
+}
+
+/* Right section css */
+.main .right-section{
+  margin-left: 1rem;
+  flex: calc(85% - 1rem);
+}
+
+.data-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data-content .card{
+  background-color:#fff;
+  margin: 0 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  width: calc(25% - 1rem);
+}
+
+.data-content .card .image-block{
+  background: #f5f2f2;
+  width: 100%;
+  height: 200px;
+  overflow:hidden;
+}
+
+.data-content .card .image-block img{
+  max-width: 100%;
+  max-height: 100%;
+  display:block;
+  margin: auto;
+}
+
+.data-content .card .mission-name {
+  color : rgb(60, 57, 214);
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+footer{
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 1024px){
+  .left-section{
+    flex: 30% !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .right-section{
+    flex: calc(70% - 1rem) !important;
+  }
+  .right-section .data-content .card{
+    width: calc(50% - 1rem) !important;
+  }
+
+	.filter-btn .btn{
+    padding: .375rem .5rem !important;
   }
 }
+
+@media only screen and (max-width: 576px){
+
+  .left-section, .right-section{
+    flex: 100% !important;
+  }
+
+  .filter-btn{
+    padding: 1.5rem 2.75rem;
+  }
+
+  .filter-btn .btn{
+    margin: 0.25rem 0.5rem !important;
+    width: calc(50% - 1rem);
+  }
+
+  .right-section{
+    margin: 1rem 0 !important;
+  }
+
+  .right-section .data-content .card{
+    width: 100% !important;
+    margin: 0.5rem 0 !important;
+  }
+
+}
+
