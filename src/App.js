@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>spacEx Lunch Programs</h1>
+        <h1>spacEx Launch Programs</h1>
       </header>
       <div className="main">
         <LeftSection />
