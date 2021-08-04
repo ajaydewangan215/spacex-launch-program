@@ -6,18 +6,18 @@ import { useDispatch, useSelector } from 'react-redux'
 const RightSection = () => {
     const dataList = useSelector(state => state.allData.dataList)
     const dispatch = useDispatch()
+
+    const fetchData = async () => {
+        try {
+            const endPoint = 'https://api.spacexdata.com/v3/launches?limit=100'
+            const response = await axios.get(endPoint) 
+            dispatch(getData(response.data))             
+        } catch (error) {
+            console.log(error)
+        }
+    }
    
     useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                 const endPoint = 'https://api.spacexdata.com/v3/launches?limit=100'
-                 const response = await axios.get(endPoint) 
-                 dispatch(getData(response.data))             
-            } catch (error) {
-                console.log(error)
-            }
-        }
         fetchData()        
     }, [])
 

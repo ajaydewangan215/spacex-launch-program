@@ -1,7 +1,8 @@
+import React, { Suspense, lazy } from 'react';
 import './App.css'
 import Footer from './components/Footer'
-import LeftSection from './components/LeftSection'
-import RightSection from './components/RightSection'
+const LeftSection = lazy(() => import('./components/LeftSection'))
+const RightSection = lazy(() => import('./components/RightSection'))
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
         <h1>spacEx Launch Programs</h1>
       </header>
       <div className="main">
-        <LeftSection />
-        <RightSection />        
+        <Suspense fallback={<div>Loading...</div>}>
+          <LeftSection />
+          <RightSection />
+        </Suspense>     
       </div>
       <Footer />
     </div>
